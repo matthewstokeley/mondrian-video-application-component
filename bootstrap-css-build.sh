@@ -9,55 +9,50 @@
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # 
-# Modern Stylesheets
-
-if [ .babelrc -e ]
-	then
-		touch .babelrc
-endif
-
-npm install csso prettier scss scsslint csslint postcss webpack critical styled
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# 
 # Machine Formatting
 
-touch .prettierrc
+if [ .prettierrc -e ]
+	then	
+		touch .prettierrc
+fi
 
 npm install --save-dev prettier standard
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # 
-# Machine Analysis
+# Machine Analysis and Optimization
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# 
-# Testing Environment 
-
-## Regression Testing
-
-touch wdio.conf
-
-npm install --save-dev wdio
-
-## Component Testing
-
-npx -p @storybook/cli sb init
-
-## Unit Tests
-
-npm install --save-dev mocha karma chai
-
-## Snapshot Testing
-
-npm install --save-dev jest
+npm install --save-dev csso scsslint csslint postcss
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # 
 # QA Environment
 
-## Lighthouse CLI
-npm install --save-dev lighthouse-cli
+## CSS Stats
+
 
 ## Reporting
 npm install --save-dev allure
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 
+# CSS Preprocessors
+
+npm install --save-dev scss sass
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 
+# CSS Components
+
+if [ .babelrc -e ]
+	then
+		touch .babelrc
+fi
+
+npm install --save styled-components react react-dom react-is
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 
+# CSS Production 
+
+npm install --save-dev webpack critical 
