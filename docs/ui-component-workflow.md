@@ -80,3 +80,5 @@
 ###### Tracing
 	- Diligence Chrome Dev Tools, Jaeger
 
+###### Deployment pipeline integration
+	- Travis
