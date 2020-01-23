@@ -4,21 +4,31 @@
   "description": "",
   "main": "ui-form-controls.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@storybook/addon-actions": "^5.3.8",
+    "@storybook/addon-links": "^5.3.8",
+    "@storybook/addons": "^5.3.8",
+    "@storybook/react": "^5.3.8",
     "babel": "^6.23.0",
+    "babel-loader": "^8.0.6",
     "chai": "^4.2.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "jest": "^25.1.0",
+    "lighthouse-cli": "^0.1.2",
     "mocha": "^7.0.0",
     "prettier": "^1.19.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-jsx": "^1.0.0",
+    "standard": "^14.3.1",
     "storybook": "^5.3.8",
     "wdio": "^4.0.0"
   },
