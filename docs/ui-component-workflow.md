@@ -3,7 +3,7 @@
 
 ##### UX
 	- User Workflow
-	- Seq Diagram
+	- Seq Diagram ✔️ 
 
 ##### Script
 	- Events
@@ -20,7 +20,7 @@
 	- Standard
 
 ###### Testing 
-	- UI Component Testing
+	- UI Component Testing ✔️ 
 		- Storybook
 	- Unit Testing
 		- Mocha, Karma, Chai
