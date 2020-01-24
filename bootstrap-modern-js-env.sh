@@ -53,9 +53,9 @@ npx -p @storybook/cli sb init
 
 ## Unit Tests
 
-npm install --save-dev mocha karma chai
+npm install --save-dev mocha jasmine chai
 
-## Snapshot Testing
+## Snapshot / Unit Testing
 
 npm install --save-dev jest
 
@@ -67,4 +67,5 @@ npm install --save-dev jest
 npm install --save-dev lighthouse-cli
 
 ## Reporting
+# @link https://docs.google.com/spreadsheets/d/14mm2FRqMGerwqcX_pkKxXMzrMiPipDpy1_rnWjdhtCY/edit?usp=sharing
 npm install --save-dev allure

@@ -3,7 +3,15 @@
   		"@babel/preset-env",
   		"@babel/preset-react"
   ],
-  "plugins": [],
+  "plugins": [
+  	["babel-plugin-styled-components", {
+  		"minify": false,
+  		"transpileTemplateLiterals": false,
+  		"pure": true
+  		}
+  	], 
+	"typescript-plugin-styled-components"
+  ],
   "ignore": []
-  
+ 
 }
