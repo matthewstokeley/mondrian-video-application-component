@@ -21,7 +21,10 @@ npm install -g typescript && npm install @babel/core babel-loader
 # 
 # Machine Formatting
 
-touch .prettierrc
+if [ .prettierrc -e ]
+	then	
+		touch .prettierrc
+fi
 
 npm install --save-dev prettier standard
 
@@ -35,11 +38,16 @@ npm install --save-dev prettier standard
 
 ## Regression Testing
 
-touch wdio.conf
+if [ wdio.conf -e ]
+	then	
+		touch wdio.conf
+fi
 
 npm install --save-dev wdio
 
 ## Component Testing
+
+npm install --save-dev storybook @storybook/addon-actions @storybook/addon-links @storybook/addons @storybook/react
 
 npx -p @storybook/cli sb init
 
