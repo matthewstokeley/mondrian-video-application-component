@@ -9,8 +9,7 @@
   		"transpileTemplateLiterals": false,
   		"pure": true
   		}
-  	], 
-	"typescript-plugin-styled-components"
+  	]
   ],
   "ignore": []
  

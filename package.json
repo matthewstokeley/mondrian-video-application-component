@@ -27,6 +27,7 @@
     "jest": "^25.1.0",
     "jest-allure-reporter": "^1.2.3",
     "karma-allure-reporter": "^1.4.5",
+    "lighthouse-ci": "^1.10.0",
     "lighthouse-cli": "^0.1.2",
     "mocha": "^7.0.0",
     "prettier": "^1.19.1",
