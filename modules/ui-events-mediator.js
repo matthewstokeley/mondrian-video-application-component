@@ -67,10 +67,21 @@ export default class UIMediator {
 	 * @return {Context}
 	 */
 	emit( name: String, payload: Object ) {
-		for ( let i = 0; i < this.events.length; i++ ) {
-			if ( this.events[ i ][ name ] ) {
-				this.events.[ i ][ name ].call( this, payload )
+
+		try {
+
+			for ( let i = 0; i < this.events.length; i++ ) {
+				if ( this.events[ i ][ name ] ) {
+					this.events[ i ][ name ].call( this, payload )
+				}
 			}
+
+		} catch( e ) {
+
+			console.trace( e )
+
+			throw new Exception( e ) 
+		
 		}
 
 		return this
