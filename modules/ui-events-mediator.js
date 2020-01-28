@@ -1,10 +1,13 @@
 /**
+ * 
  * Leibowitz Branding and Design
  * 
  * This UI Mediator is meant to 
  * listen to standard react and browser api
  * events and to provide a custom pub/sub 
  * declarative events api.
+ *
+ * @todo Robust version required
  *
  * @version 2.0.0
  */
