@@ -5,7 +5,7 @@
 
 
 module.exports = {
-stories: ['../stories/**/*.stories.ts'],
+stories: ['../stories/**/*.stories.js'],
 addons: ['@storybook/addon-actions', '@storybook/addon-links'],
 webpackFinal: async config => {
   config.module.rules.push({

@@ -7,7 +7,13 @@
  * events and to provide a custom pub/sub 
  * declarative events api.
  *
- * @todo Robust version required
+ * @todo
+ * 	- robust event queuing
+ * 	- production-environment error handling
+ * 	- 'expected' pattern object payload handling
+ * 	- onlisten->addevent
+ * 	- key-based event resolving
+ * 	- robust method invocation
  *
  * @version 2.0.0
  */
@@ -74,11 +80,13 @@ export default class UIMediator {
 	 */
 	emit( name: String, payload: Object ) {
 
+		let eventToEmit
+
 		try {
 
 			for ( let i = 0; i < this.events.length; i++ ) {
 				if ( this.events[ i ][ name ] ) {
-					this.events[ i ][ name ].call( this, payload )
+					eventToEmit = this.events[ i ][ name ]
 				}
 			}
 
@@ -89,6 +97,8 @@ export default class UIMediator {
 			throw new Exception( e ) 
 		
 		}
+
+		eventToEmit.call( this, payload )
 
 		return this
 	}
