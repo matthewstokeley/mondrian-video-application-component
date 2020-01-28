@@ -186,6 +186,8 @@
 					this.videoContainerId = options.videoContainerId || false
 					this.duration = options.transitionDuration || 200
 
+					this.indicators = options.indicators || document.querySelector( '#VideoCarouselIndicators' )
+
 					let container = document.getElementById( this.videoContainerId )
 
 					this.slides = container.children
@@ -212,6 +214,15 @@
 								? ( this.slideIndex < this.slidesLength ) ? this.slideIndex++ : this.slideIndex
 								: ( this.slideIndex < 0 ) ? this.slideIndex-- : this.slideIndex
 							: this.slideIndex = 0
+
+					for ( let i = 0; i < this.indicators.children.length; i++ ) {
+						this.indicators.children[ i ].classList.remove( 'active' )
+
+						if ( this.slideIndex === i ) {
+							this.indicators.children[ i ].classList.add( 'active' )
+						}
+
+					}
 
 					this.move.call( this, direction )
 			}
@@ -253,14 +264,19 @@
 
 				this.appendToDom.call( this )
 
+
+
 			}
 
 			CarouselIndicatorButtons.prototype.elementFactory = function( className ) {
 
 				let el = document.createElement( 'li' )
-				if (className) {
+
+				if ( className ) {
+
 					el.classList.add( className )
 				}
+
 				return el
 			}
 
@@ -272,10 +288,10 @@
 
 					let el
 
-					if ( this.slideIndex === i ) {
-						el = elementFactory( 'active' )
+					if ( this.component.slideIndex === i ) {
+						el = this.elementFactory( 'active' )
 					} else {
-						el = elementFactory()
+						el = this.elementFactory()
 					}
 
 					fragment.appendChild( el )
