@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { action } from '@storybook/addon-actions';
-import { UIMediator } from './modules/events';
+// import { UIMediator } from './modules/events';
 // import { Button } from '@storybook/react/demo';
 
 export default {
@@ -15,6 +15,10 @@ const Button = styled.button`
   padding: 1rem;
   transition: all 200ms ease-in; 
   
+  background-color: #2B949E;
+
+  color: #fff;
+
   &:hover {
     border-color: 1px solid #000;
     cursor: pointer;
@@ -42,10 +46,10 @@ const Button = styled.button`
 
 export const StyledDatasetButton = ( props ) => (
 
-  <Button onClick={UIMediator.listen(event)}>
+  <Button>
     <span  
-    	role="navigatio  " 
-    	aria-label="carousel ui control"
+    	role="navigation" 
+    	aria-label="Carousel UI Control"
     	aria-pressed="false"
     	data-direction="{props.direction}"
     	>
