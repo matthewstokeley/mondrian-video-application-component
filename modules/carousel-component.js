@@ -43,8 +43,6 @@ const Button = styled.button`
 
 export const StyledDatasetButton = ( props ) => (
 
-  let mediator = new UIMediator
-
   <Button onclick="{mediator.listen(event)}">
     <span  
     	role="navigation" 

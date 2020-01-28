@@ -15,7 +15,7 @@
 # 
 # Modern Javascript
 
-npm install -g typescript && npm install @babel/core babel-loader
+npm install -g typescript && npm install @babel/core babel-loader && npm install webpack webpack-cli
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # 

@@ -12,6 +12,7 @@
  * 	- Production-environment error handling
  * 	- 'Expected' pattern object payload handling
  * 	- Onlisten->addevent
+ * 	- Function / Signal payloads to replace object payloads
  * 	- Key-based event resolving
  * 	- Robust method invocation
  * 	- Data-based and configuration api

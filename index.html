@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+	<head>
+		
+
+		<style>
+
+		.lb-ui-video-carousel-control-btn {
+			
+			 border-radius: 2rem;
+			 padding: 1rem;
+			 transition: all 200ms ease-in; 
+			  
+			 background-color: #2B949E;
+
+			 color: #fff;
+		}
+
+		.lb-ui-video-carousel-control-btn:hover {
+			border-color: 1px solid #000;
+			cursor: pointer;
+			background: #fafafa;
+		}
+			  
+		.lb-ui-video-carousel-control-btn:focus,
+		.lb-ui-video-carousel-control-btn:focus-within {
+			outline: none;
+		}
+			  
+		.lb-ui-video-carousel-control-btn:active {
+
+		}
+
+		.lb-ui-video-carousel-control-btn:visited {
+
+		}
+
+		.lb-ui-video-carousel-control-btn > span {
+
+		}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		Video Container
+
+		<section  id=""
+				  class="" 
+				  aria-role="media"
+		>
+		
+			<div id="VideoContainer"
+				 class=""
+			>
+			
+			</div>
+
+			<div id="VideoMeta"
+				 class="video_meta"
+			>
+
+				<div id="VideoCarouselIndicators"
+					 class="lb-ui-carousel-indicators">
+					
+				</div>
+
+				<div id="VideoCarouselControls"
+					 class="video_carousel_controls">
+
+					 <button class="lb-ui-video-carousel-control-btn"
+					 		 dataset-direction="left"
+					 >
+					 	&larr;
+					</button>
+
+					 <button class="lb-ui-video-carousel-control-btn"
+					 		 dataset-direction="right"
+					 >
+					 	&rarr;
+					</button>
+				
+				</div>
+
+			</div>
+
+		</section>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.5/velocity.min.js"></script>
+		
+		<script>
+
+			const CarouselComponentState = function( options ) {
+
+					if ( typeof options !== 'object' ) {
+						return false
+					} 
+
+					this.slideIndex = 0
+					this.contentWidth = "600px"
+					this.videoContainerId = ''
+					this.transitionDuration = 200
+					this.childElements
+
+					this.contentWidth = options.contentWidth ?? "600px"
+					this.videoContainerId = options.videoContainerId ?? false
+					this.duration = options.transitionDuration ?? 200
+
+					let container = document.getElementById( videoContainerId )
+
+					this.slides = container?.children
+					this.slidesLength = container?.children.length
+			}
+
+			CarouselComponentState.prototype.setComponentState = function( direction ) {
+
+					if ( typeof direction !== 'string' ) {
+						return false
+					}
+
+					slidesLength !== slideIndex ? direction === 'left'
+								? this.slideIndex--
+								: this.slideIndex ++
+							: this.slideIndex = 0
+
+					this.move.call( this, direction )
+			}
+
+			CarouselComponentState.prototype.move = function( direction ) {
+
+					if ( typeof direction !== 'string' ) {
+						return false
+					}
+
+					if ( ! this.videoContainerId ) {
+						return false
+					}
+
+					Velocity( document.getElementById( this.videoContainerId ),
+						{ transform: translate( this.contentWidth, 0 ) },
+						{ duration: this.duration } )
+
+					return true
+			}
+
+			CarouselComponentState.prototype.getSlides = function() {
+				return this.slides
+			}
+
+			CarouselComponentState.prototype.getSlidesLength = function() {
+				return this.slidesLength
+			}
+
+
+			const CarouselIndicatorButtons = function(options) {
+				if ( ! typeof options === 'object' ) {
+					return false
+				}
+
+				this.component = options.component
+				this.container = options.container ?? document.querySelectorAll( '.lb-ui-carousel-indicators' )
+			
+			}
+
+			CarouselIndicatorButtons.prototype.elementFactory = function() {
+				return document.createElement( 'li' )
+			}
+
+			CarouselIndicatorButtons.prototype.appendToDom = function() {
+
+				let fragment = document.createElement( 'ul' )
+
+				for ( let i = 0; i < this.component.getSlidesLength(); i++ ) {
+					fragment.innerHTML += thie.state.getSlides()[ i ]
+				}
+
+				this.container.innerHTML = fragment.innerHTML
+
+				return this
+			}
+
+			const UIMediator = function() {
+
+				this.events = []
+				
+				this.listeners = []
+
+			}
+
+			/**
+			 * 
+			 *
+			 * @chainable
+			 * 
+			 * @param {Function} fn
+			 *
+			 * @return {Context}
+			 */
+			UIMediator.prototype.listen = ( fn: Function ) {
+
+				fn.call( this )
+
+				return this
+
+			}
+
+			UIMediator.prototype.clickHandler = ( event ) {
+
+				event.preventDefault()
+
+				this.addEvent()
+
+				return this
+			}
+
+			/**
+			 * 
+			 *
+			 * @chainable
+			 * 
+			 * @param {String}     name
+			 * 
+			 * @param {Function}   fn
+			 *
+			 * @return {Context}
+			 */
+			UIMediator.prototype.addEvent = ( name: String, fn: Function ) {
+
+				let eventObj = {}
+
+				eventObj[ name ] = fn
+
+				this.events.push( eventObj )
+
+				return this
+			}
+
+			/**
+			 *
+			 *
+			 * This event emitter will catch propagating exceptions for events
+			 * that throw them.  See the link below for a continuously updated list of
+			 * common errors. 
+			 * 
+			 * @link https://gist.githubusercontent.com/matthewstokeley/4f9719fb85f3d1d8c77e6756f84a5b00/raw/0082061c6ee1264ec0bfbe0269b545b400971873/err.md 
+			 * @todo don't throw in production environments
+			 * 
+			 * @chainable
+			 * 
+			 * @param {String}    name
+			 * 
+			 * @param {Object}    payload
+			 *
+			 * @return {Context}
+			 */
+			UIMediator.prototype.emit = ( name: String, payload: Object ) {
+
+				let eventToEmit
+
+				try {
+
+					for ( let i = 0; i < this.events.length; i++ ) {
+						if ( this.events[ i ][ name ] ) {
+							eventToEmit = this.events[ i ][ name ]
+						}
+					}
+
+				} catch( e ) {
+
+					console.trace( e )
+					
+					throw new Exception( e ) 
+				
+				}
+
+				eventToEmit.call( this, payload )
+
+				return this
+			}
+	
+			const CarouselUIControl = function( mediator, component ) {
+				
+				this.mediator = mediator
+
+				this.component = component
+
+				this.mediator.addEvent( 'move', ( direction ) => this.component.setComponentState( direction ) )
+
+				this.buttons = document.querySelectorAll( '.lb-ui-video-carousel-control-btn' )
+
+				this.registerClickHandler.call( this )
+			
+			} 
+
+			/**
+			 * 
+			 * @return {}
+			 */
+			CarouselUIControl.prototype.registerClickHandler = function() {
+
+				this.buttons.forEach( (v, i, a) => { 
+				
+					v.addEventListener('click', ( event ) => { 
+
+						event.preventDefault()
+
+						let direction = event.target.dataset.direction;
+
+						this.mediator.emit( 'move', direction )
+
+					}
+
+				 } )
+			}
+
+			let mediator = new UIMediator()
+
+			let component = new CarouselComponentState({
+				contentWidth: "600px",
+				videoContainerId: false,
+				duration: 200
+			} )
+
+			let indicators = new CarouselIndicatorButtons({
+				component: component
+			} )
+
+			let ui = new CarouselUIControl({
+				mediator: mediator,
+				component: component
+			} )
+
+		</script>
+	</body>
+
+</html>

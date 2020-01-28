@@ -8,7 +8,7 @@ export default class CarouselComponentState {
 
 	videoContainerId = ''
 
-	transitionDuration: 200
+	transitionDuration = 200
 
 	childElements
 
