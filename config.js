@@ -1,4 +1,4 @@
 export default {
-	JS_PATH: './js'
+	JS_PATH: './modules'
 	JS_DIST: './dist'
 }

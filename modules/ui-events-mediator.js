@@ -40,6 +40,15 @@ export default class UIMediator {
 
 	}
 
+	clickHandler( event ) {
+
+		event.preventDefault()
+
+		this.addEvent()
+
+		return this
+	}
+
 	/**
 	 * 
 	 *

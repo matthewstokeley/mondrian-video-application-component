@@ -10,12 +10,11 @@ let g = gulp
  * Transpile Javascript
  */
 
-g.task( 'transpile'. () => {
-	g.src( env.JS_PATH )
+g.task( 'transpile', () => {
+	g.src( './modules/**/*.js' )
 	.pipe( babel() )
 	.pipe( g.dest( env.JS_DIST ) )
 
 } )
-
 
 g.task( 'build', series( 'transpile' ) )

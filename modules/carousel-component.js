@@ -1,8 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { action } from '@storybook/addon-actions';
-// import { UIMediator } from './modules/events';
-// import { Button } from '@storybook/react/demo';
 
 export default {
   title: 'Button',
@@ -45,6 +42,8 @@ const Button = styled.button`
 `;
 
 export const StyledDatasetButton = ( props ) => (
+
+  let mediator = new UIMediator
 
   <Button onclick="{mediator.listen(event)}">
     <span  

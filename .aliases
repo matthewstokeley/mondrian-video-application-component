@@ -1,3 +1,4 @@
 #! /usr/bin/bash
 
 alias gitp="git push origin master"
+alias gitrev="git revert $1"
