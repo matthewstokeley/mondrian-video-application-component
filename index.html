@@ -432,19 +432,27 @@
 				}
 			}
 
-			let mediator = new UIMediator()
+			window.addEventListener( 'DOMContentLoaded', () => {
+				
+				if ( document.querySelector('#VideoContainer') ) {
 
-			let component = new CarouselComponentState({
-				contentWidth: "600px",
-				videoContainerId: "VideoContainer",
-				duration: 200
+					let mediator = new UIMediator()
+
+					let component = new CarouselComponentState({
+						contentWidth: "600px",
+						videoContainerId: "VideoContainer",
+						duration: 200
+					} )
+
+					let indicators = new CarouselIndicatorButtons({
+						component: component
+					} )
+
+					let ui = new CarouselUIControl( mediator, component )
+				}
+
 			} )
-
-			let indicators = new CarouselIndicatorButtons({
-				component: component
-			} )
-
-			let ui = new CarouselUIControl( mediator, component )
+	
 
 		</script>
 	</body>
