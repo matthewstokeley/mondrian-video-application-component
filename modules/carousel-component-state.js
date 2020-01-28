@@ -1,6 +1,6 @@
 import Velocity from 'velocity'
 
-export default class CarouselComponentState() {
+export default class CarouselComponentState {
 
 	slideIndex = 0
 
@@ -48,4 +48,48 @@ export default class CarouselComponentState() {
 			{ duration: this.duration } )
 
 	}
+
+	get slides() {
+		return this.slides
+	}
+
+	get slidesLength {
+		return this.slidesLength
+	}
+
+}
+ 
+export default class CarouselIndicatorButtons {
+
+	/**
+	 * 
+	 * @param 
+	 * @return {[type]} [description]
+	 */
+	constructor( options: Object ) {
+
+		this.state = options.state
+		this.container = options.container ?? document.getElementById( 'lb-ui-carousel-indicators' )
+	}
+
+	elementFactory() {
+		return document.createElement(
+			{}
+		)
+	}
+
+	appendToDom() {
+
+		let fragment = document.createElement(
+			{}
+		)
+
+		for ( let i = 0; i < this.state.getSlidesLength(); i++ ) {
+			fragment.innerHTML += thie.state.getSlides()[ i ]
+		}
+
+		this.container.innerHTML = fragment.innerHTML
+
+	}
+
 }
