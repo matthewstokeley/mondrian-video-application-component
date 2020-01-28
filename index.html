@@ -54,10 +54,28 @@
 
 		}
 
-		.lb-ui-carousel-indicators li {
-			list-style-type: none;
+		.lb-ui-carousel-indicators {
+			display: grid;
+			width: 100px;
+			position: absolute;
+			left: 50%;
+			grid-template-columns: 1fr 1fr;
 		}
 
+		.lb-ui-carousel-indicators li {
+			list-style-type: none;
+			display: inline-block;
+			float: left;
+			width: 8px;
+			height: 8px;
+			margin-top: 9px;
+			border-radius: 1rem;
+			border: 1px solid #000;
+		}
+
+		.lb-ui-carousel-indicators li.active {
+			background: #000;
+		}
 
 		.lb-ui-video-carousel-outer-container {
 			width: 600px;
@@ -176,12 +194,6 @@
 
 			CarouselComponentState.prototype.setComponentState = function( direction ) {
 
-					console.log( 'slideIndex: ' + this.slideIndex )
-
-					console.log( 'slidesLength: ' + this.slidesLength )
-
-					console.log ( 'is slide index less than the length: ' + this.slideIndex < this.slidesLength )
-
 					let marginToMove
 
 					if ( direction === 'left') { 
@@ -191,8 +203,6 @@
 					if ( direction === 'right' ) {
 						marginToMove = ( ( this.slideIndex > 0 ) ) ? 600 : 0
 					}
-
-					console.log( 'marginToMove: ' + marginToMove )
 
 					Velocity( document.getElementById( this.videoContainerId ),
 						{ marginLeft: ( -this.slideIndex * 600 ) + "px"},
@@ -245,20 +255,31 @@
 
 			}
 
-			CarouselIndicatorButtons.prototype.elementFactory = function() {
-				return document.createElement( 'li' )
+			CarouselIndicatorButtons.prototype.elementFactory = function( className ) {
+
+				let el = document.createElement( 'li' )
+				if (className) {
+					el.classList.add( className )
+				}
+				return el
 			}
 
 			CarouselIndicatorButtons.prototype.appendToDom = function() {
 
 				let fragment = document.createElement( 'ul' )
 
-				console.log(this.component.slidesLength)
-
-				console.log(this.elementFactory())
-
 				for ( let i = 0; i <= this.component.slidesLength; i++ ) {
-					fragment.appendChild( this.elementFactory() )
+
+					let el
+
+					if ( this.slideIndex === i ) {
+						el = elementFactory( 'active' )
+					} else {
+						el = elementFactory()
+					}
+
+					fragment.appendChild( el )
+				
 				}
 
 				this.container.innerHTML = fragment.innerHTML
