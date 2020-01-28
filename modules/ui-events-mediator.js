@@ -57,6 +57,12 @@ export default class UIMediator {
 
 	/**
 	 *
+	 *
+	 * This event emitter will catch propagating exceptions for events
+	 * that throw them.  See the link below for a continuously updated list of
+	 * common errors. 
+	 * @link https://gist.githubusercontent.com/matthewstokeley/4f9719fb85f3d1d8c77e6756f84a5b00/raw/0082061c6ee1264ec0bfbe0269b545b400971873/err.md 
+	 * @todo don't throw in production environments
 	 * 
 	 * @chainable
 	 * 
