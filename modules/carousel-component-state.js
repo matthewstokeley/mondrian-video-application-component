@@ -111,7 +111,7 @@ export default class CarouselIndicatorButtons {
 
 	/**
 	 * 
-	 * @todo    The 'innerHTML =' method should be updated
+	 * @todo    The 'innerHTML' method should be updated
 	 *          to use built-in methods
 	 *
 	 * @chainable

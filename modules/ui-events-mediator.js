@@ -8,12 +8,13 @@
  * declarative events api.
  *
  * @todo
- * 	- robust event queuing
- * 	- production-environment error handling
- * 	- 'expected' pattern object payload handling
- * 	- onlisten->addevent
- * 	- key-based event resolving
- * 	- robust method invocation
+ * 	- Robust event queuing
+ * 	- Production-environment error handling
+ * 	- 'Expected' pattern object payload handling
+ * 	- Onlisten->addevent
+ * 	- Key-based event resolving
+ * 	- Robust method invocation
+ * 	- Data-based and configuration api
  *
  * @version 2.0.0
  */
@@ -67,6 +68,7 @@ export default class UIMediator {
 	 * This event emitter will catch propagating exceptions for events
 	 * that throw them.  See the link below for a continuously updated list of
 	 * common errors. 
+	 * 
 	 * @link https://gist.githubusercontent.com/matthewstokeley/4f9719fb85f3d1d8c77e6756f84a5b00/raw/0082061c6ee1264ec0bfbe0269b545b400971873/err.md 
 	 * @todo don't throw in production environments
 	 * 
@@ -93,7 +95,7 @@ export default class UIMediator {
 		} catch( e ) {
 
 			console.trace( e )
-
+			
 			throw new Exception( e ) 
 		
 		}
