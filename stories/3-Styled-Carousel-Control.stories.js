@@ -46,7 +46,7 @@ const Button = styled.button`
 
 export const StyledDatasetButton = ( props ) => (
 
-  <Button>
+  <Button onclick="{}">
     <span  
     	role="navigation" 
     	aria-label="Carousel UI Control"

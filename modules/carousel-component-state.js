@@ -77,7 +77,7 @@ export default class CarouselComponentState {
 		return this.slides
 	}
 
-	get slidesLength {
+	get slidesLength() {
 		return this.slidesLength
 	}
 
