@@ -12,6 +12,14 @@ export default class CarouselComponentState {
 
 	childElements
 
+	/**
+	 *
+	 * Standard object instantiation
+	 * 
+	 * @param  {Object} options @todo create a typed definition
+	 *
+	 * @return {null}
+	 */
 	constructor( options ) {
 
 		this.contentWidth = options.contentWidth ?? "600px"
@@ -25,7 +33,13 @@ export default class CarouselComponentState {
 	
 	}
 
-	
+	/**
+	 * 
+	 * Declarative method for updating the explicitly coupled
+	 * slideIndex as the component state.
+	 *
+	 * @param {String} direction
+	 */
 	setComponentState( direction: String ) {
 
 		slidesLength !== slideIndex ? direction === 'left'
@@ -37,6 +51,14 @@ export default class CarouselComponentState {
 	
 	}
 
+	/**
+	 * 
+	 * Element animation encapsulation
+	 * 
+	 * @param  {String} direction
+	 *
+	 * @return {Boolean}   
+	 */
 	move( direction ) {
 
 		if ( ! this.videoContainerId ) {
@@ -46,6 +68,8 @@ export default class CarouselComponentState {
 		Velocity( document.getElementById( this.videoContainerId ),
 			{ transform: translate( this.contentWidth, 0 ) },
 			{ duration: this.duration } )
+
+		return true
 
 	}
 
@@ -63,8 +87,11 @@ export default class CarouselIndicatorButtons {
 
 	/**
 	 * 
-	 * @param 
-	 * @return {[type]} [description]
+	 * @param {Object} options
+	 *
+	 * @chainable
+	 *
+	 * @return {Context}
 	 */
 	constructor( options: Object ) {
 
@@ -72,23 +99,36 @@ export default class CarouselIndicatorButtons {
 		this.container = options.container ?? document.getElementById( 'lb-ui-carousel-indicators' )
 	}
 
+	/**
+	 * 
+	 * A factory method to return our indicator element
+	 *
+	 * @return {Element}
+	 */
 	elementFactory() {
-		return document.createElement(
-			{}
-		)
+		return document.createElement( 'li' )
 	}
 
+	/**
+	 * 
+	 * @todo    The 'innerHTML =' method should be updated
+	 *          to use built-in methods
+	 *
+	 * @chainable
+	 *
+	 * @return
+	 */
 	appendToDom() {
 
-		let fragment = document.createElement(
-			{}
-		)
+		let fragment = document.createElement( 'ul' )
 
 		for ( let i = 0; i < this.state.getSlidesLength(); i++ ) {
 			fragment.innerHTML += thie.state.getSlides()[ i ]
 		}
 
 		this.container.innerHTML = fragment.innerHTML
+
+		return this
 
 	}
 
