@@ -70,11 +70,11 @@
 			height: 8px;
 			margin-top: 9px;
 			border-radius: 1rem;
-			border: 1px solid #000;
+			border: 1px solid #999;
 		}
 
 		.lb-ui-carousel-indicators li.active {
-			background: #000;
+			background: #aaa;
 		}
 
 		.lb-ui-video-carousel-outer-container {
@@ -206,14 +206,14 @@
 						marginToMove = ( ( this.slideIndex > 0 ) ) ? 600 : 0
 					}
 
-					Velocity( document.getElementById( this.videoContainerId ),
-						{ marginLeft: ( -this.slideIndex * 600 ) + "px"},
-						{ duration: this.duration } )
-
 					this.slidesLength !== this.slideIndex ? direction === 'left'
 								? ( this.slideIndex < this.slidesLength ) ? this.slideIndex++ : this.slideIndex
 								: ( this.slideIndex < 0 ) ? this.slideIndex-- : this.slideIndex
 							: this.slideIndex = 0
+
+					Velocity( document.getElementById( this.videoContainerId ),
+						{ marginLeft: ( -this.slideIndex * 600 ) + "px"},
+						{ duration: this.duration } )
 
 					for ( let i = 0; i < this.indicators.children.length; i++ ) {
 						this.indicators.children[ i ].classList.remove( 'active' )
