@@ -8,3 +8,4 @@ ITIL Design Service phase should incorporate development practices associated wi
 -   Interactive components
 - Server-side scripting
 - Server-side services - rest api’s, rpc’s, and other web services
+- Node development environment utilities
