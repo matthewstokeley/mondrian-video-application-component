@@ -1,4 +1,5 @@
-ITIL Design Service phase should incorporate development practices associated with the following facets of javascript
+
+Proposed categories for the ITIL design service phase - related to development practices. 
 
 - Functional composition and object mutation
 - Low level dom scripting
