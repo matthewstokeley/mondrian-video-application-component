@@ -54,7 +54,7 @@ Devops and QA aren't development concerns
 	- Developmers
 
 	What?
-		quote from the recent John Maeda 
+		Quote from the recent John Maeda 
 		- Speed feels like simplicity 
 		- Marissa Mayer / Addy Osmani
 
@@ -65,8 +65,8 @@ Devops and QA aren't development concerns
 			- Instead of distributed, decoupled microservices, CSI or ESI allows for distributed, decoupled micro-frontends (self contained html documents - web components, polymer, react/jsx-style components)
 			- multiple developers
 			- local scoping - no conflicts between developers / namespace space collisions
-		- containerized approach would be best
+		- Containerized approach would be best
 
-	- Complicated systems end up with a longer time-to-market
+		- Complicated systems end up with a longer time-to-market
 
 	- Components aren't modular, worksflows are
