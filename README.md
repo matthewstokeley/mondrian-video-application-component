@@ -13,26 +13,60 @@ Proposed categories for the ITIL design service phase - related to development p
 - Server-side services - rest api’s, rpc’s, and other web services
 - Node development environment utilities
 
+---
 
 
--- 
 
-quote from Maeda 
-- Speed feels like simplicity 
-- Mayer / Addy Osmani
+---
 
-Microservices Automated Testing Book
-*replace microservice with micro-front-end for a comparable architectural overview*
-	- instead of distributed, decoupled microservices, CSI or ESI allows for distributed, decoupled micro-frontends (self contained html documents - web components, polymer, react/jsx-style components)
-		- multiple developers
-		- local scoping - no conflicts between developers / namespace space collisions
-	- containerized approach would be best
-
-- Complicated systems create a longer time-to-market
-
-- Following ITIL's strategy -> design -> transition services decrease development time by separating concerns (removing qa, cross-browser, accessibility, code style / machine formatting, regression testing, and code quality / unit testing from the developer's purview via automation ), leaving only development concerns. 
-
-Takeaway 
+**Good to knows**
 - nice to have's versus expected deliverables?
 
-Document-driven development approved
+**Radar**
+- Knuth's premature optimization / over-optimization strongly influenced
+
+**Takeaways**
+- Document-driven development approved
+- Following ITIL's strategy -> design -> transition services decreases development time by separating concerns
+
+Devops and QA aren't development concerns
+	Can be:
+	- Automated
+	- Isolated
+	- Integrated
+
+	Examples:
+	- Client-side qa
+		- cross-browser
+		- accessibility
+		- regression testing
+	- Development-side qa
+		- code style / machine formatting
+		- code quality / unit testing
+ 		- documentation
+ 	- Development environments
+
+- What is efficiency, performance, expectations and to who?
+
+	Who?
+	- Stakeholders
+	- Project Team
+	- Developmers
+
+	What?
+		quote from the recent John Maeda 
+		- Speed feels like simplicity 
+		- Marissa Mayer / Addy Osmani
+
+		Understanding the micro-frontend architectural paradigm
+
+		- Microservices Automated Testing Book
+			*replace microservice with micro-front-end for a comparable architectural overview*
+			- Instead of distributed, decoupled microservices, CSI or ESI allows for distributed, decoupled micro-frontends (self contained html documents - web components, polymer, react/jsx-style components)
+			- multiple developers
+			- local scoping - no conflicts between developers / namespace space collisions
+		- containerized approach would be best
+
+	- Complicated systems end up with a longer time-to-market
+
+	- Components aren't modular, worksflows are
