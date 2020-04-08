@@ -12,7 +12,6 @@ const babel=require('gulp-babel')
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *
- * Leibowitz Branding and Design
  * Task Runner
  *
  * @version 0.0.1
